@@ -41,5 +41,5 @@ stages:
     - task: AzureWebAppContainer@1
       inputs:
        appName: $(WebAppName)
-       azureSubscription: 'Azure subscription 1'
+       azureSubscription: 'Nodejs Demo App'
        imageName: $(RegistryName)/$(webRepository):$(build.buildId)
