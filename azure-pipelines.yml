@@ -4,6 +4,7 @@ trigger:
 variables:
   webRepository: 'web'
   tag: '$(Build.BuildId)'
+  dockerRegistryServiceConnection: '7937ec07-a9df-4ae3-9269-1895d030d87a'
 
 stages:
 - stage: 'Build'
@@ -21,7 +22,7 @@ stages:
         buildContext: $(Build.Repository.LocalPath)
         repository: $(webRepository)
         dockerfile: '$(Build.SourcesDirectory)/Dockerfile'
-        containerRegistry: 'Container Registry Connection'
+        containerRegistry: $(dockerRegistryServiceConnection)
         tags: |
           $(tag)
 
